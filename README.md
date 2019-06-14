@@ -9,4 +9,4 @@ A Matlab toolbox for Learng To Diversify via Weighted Kernel(L2DWK) for Classifi
 For any problem concerning the code, please feel free to contact Mr. Chun Yang (noah_s_ark@163.com).
 
 ## Example
-tests\L2DWK_example.m shows a demo of using the code.
+**.\tests\L2DWK_example.m** shows a demo of using the code.
