@@ -21,7 +21,6 @@ load('classifier_tree_101_Re');                         % load matrix R: the cla
 
 fprintf('\nL2DWK starts.\n');
 W1 = learn_L2DWK(R,traintarget,'linear',[],'dis',0.8);   % linear kernel, disagreement diversity, lambda=0.8
-% W2 = learn_L2DWK(R,traintarget,'linear',[],'df',0.5);   % linear kernel, double fault diversity, lambda=0.5
 fprintf('\nL2DWK ends.\n');
 
 %% predict L2DWK
