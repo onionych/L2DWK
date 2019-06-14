@@ -1,6 +1,6 @@
 # L2DWK
 
-A Matlab toolbox for Learng To Diversify with Weighted Kernel(L2DWK), which learns to adaptively combine classifiers by considering both accuracy and diversity.
+A Matlab toolbox for Learng To Diversify via Weighted Kernel(L2DWK) for Classifier Ensemble, which learns to adaptively combine classifiers by considering both accuracy and diversity.
 
 ## Recent Update
 **·** June. 14, 2019: The code is released.
