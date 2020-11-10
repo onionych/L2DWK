@@ -42,7 +42,7 @@ for i=1:turn;
 	f = km_kernel_U(O',op',kt,rc,V);
 	d = km_kernel_U(1-O',1-O',kt,rc,V);
     
-    H = [1 -lambda*f';-lambda*f d];
+    H = [1 -lambda*f';-lambda*f -d];
     
     [~,u] = chol(H);
     while(u~= 0 )
