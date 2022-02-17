@@ -4,6 +4,7 @@ A Matlab toolbox for Learng To Diversify via Weighted Kernel(L2DWK) for Classifi
 
 ## Recent Update
 **·** June. 14, 2019: The code is released.
+
 **·** Feb. 5, 2020: The code is updated.
 
 ## Contact Us
