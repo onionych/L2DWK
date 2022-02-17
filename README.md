@@ -8,7 +8,7 @@ A Matlab toolbox for Learng To Diversify via Weighted Kernel(L2DWK) for Classifi
 **·** Feb. 17, 2022: The code is updated.
 
 ## Contact Us
-For any problem concerning the code, please feel free to contact Mr. Chun Yang (noah_s_ark@163.com).
+For any problem concerning the code, please feel free to contact Mr. Chun Yang (noah_s_ark@163.com, chunyang@ustb.edu.cn).
 
 ## Example
 **.\tests\L2DWK_example.m** shows a demo of using the code.
