@@ -1,9 +1,9 @@
-function Weight = L2DWK_Df(R,target,kt,rc,lambda)
-% L2DWK with double fault diversity 
+function Weight = L2DWK_Dis(R,target,kt,rc,lambda)
+% L2DWK with disagreement diversity 
 % parameter:
 % Weight: Weights of classifiers 
-% R     : the classification result, where the i-th data is classified R_{ij} by the j-th classifier    
-% target: an N*1 vector, N is the number of data
+% R     : the classification result, where the i-th data is classified R_{ij} by the j-th classifier 
+% target: an N*1 vector, N is the number of data  
 % kt    : kernel type, include{'linear','guass','poly'}
 % rc    : parameter for selected kernel type
 % lambda: parameter for loss - diversity combinition
@@ -17,7 +17,7 @@ e = ones(turn,1);
 e_min = 1;
 
 [N L] = size(R);
-O  =  2*(R == repmat(target',1,L))-1;
+O  =  2*double(R == repmat(target',1,L))-1;
 C = unique(target);
 
 if(size(C,1)>1)
@@ -28,20 +28,20 @@ Aeq = [0 ones(1,L)];
 Beq = 1;
 lb =  [1; zeros(L,1)];
 ub =  [1; ones(L,1)];
-V =  ones(N,1)/N;				%	sample weights
+V =  ones(N,1)/N;
 W0 = [1;ones(L,1)/L];
-% W0(2:end) = rand(L,1);
-% W0(2:end) = W0(2:end)/sum(W0(2:end)); %ones(L,1)/L];
+%W0(2:end) = rand(L,1);
+%W0(2:end) = W0(2:end)/sum(W0(2:end)); 
 op = ones(N,1);
 warning off
 opts = optimset('Display','off');
 
-n =0;
+n = 0;
 for i=1:turn;
-    %	Df
-	f = km_kernel_U(O',op',kt,rc,V);
-	d = km_kernel_U(1-O',1-O',kt,rc,V);
-    
+%     fprintf('======%d==%d======\n',i,turn);
+%    Dis
+    f = km_kernel_U(O',op',kt,rc,V);
+    d = km_kernel_U(O',O',kt,rc,V);
     H = [1 -lambda*f';-lambda*f d];
     
     [~,u] = chol(H);
@@ -85,11 +85,11 @@ for i=1:turn;
  	n = fprintf(1,'%d',i);
     
     if(e(i) <= e_min)
-        e_min = e(i);
+         e_min = e(i);
         W0 = W ;
-    else
-        continue;
-    end
+     else
+         continue;
+     end
 end
 
 Weight = W0(2:end).*(W0(2:end)>.001);
